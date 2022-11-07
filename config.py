@@ -1,0 +1,10 @@
+SSID = ''
+PASSWORD = ''
+LED_STATUS = True
+LOCATION = ""
+INFLUX_URL = ""
+ORG = ""
+BUCKET = ""
+INFLUX_WRITE_URL = f"{INFLUX_URL}/api/v2/write?org={ORG}&bucket={BUCKET}&precision=ns"
+INFLUX_API_TOKEN = ""
+TEMP_OFFSET = -2
