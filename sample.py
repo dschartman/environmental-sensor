@@ -1,7 +1,7 @@
 from machine import I2C, Pin
 
 from bme680 import *
-from config import TEMP_OFFSET
+from config import SENSOR_TEMP_OFFSET
 from led import led_status
 
 i2c = I2C(1, sda=Pin(2), scl=Pin(3), freq=400000)
@@ -17,8 +17,8 @@ def _celcius_to_fahrenheit(temp):
 def take_reading():
     temp = bme.temperature
     return {
-        "temperature": _celcius_to_fahrenheit(temp + TEMP_OFFSET),
-        "temperature_c": temp + TEMP_OFFSET,
+        "temperature": _celcius_to_fahrenheit(temp + SENSOR_TEMP_OFFSET),
+        "temperature_c": temp + SENSOR_TEMP_OFFSET,
         "humidity": bme.humidity,
         "pressure": bme.pressure,
         "gas": bme.gas,

@@ -1,7 +1,7 @@
 import urequests
 
 import wifi
-from config import INFLUX_API_TOKEN, INFLUX_WRITE_URL, LOCATION
+from config import INFLUX_API_TOKEN, INFLUX_WRITE_URL, SENSOR_LOCATION
 from led import led_status
 
 headers = {
@@ -18,7 +18,7 @@ def send_to_influx(sensor_data):
 
     fields = (
         "sensors,",
-        "location={location}".format(location=LOCATION),
+        "location={location}".format(location=SENSOR_LOCATION),
         " ",
         "temperature={temp}".format(temp=sensor_data["temperature"]),
         ",humidity={humidity}".format(humidity=sensor_data["humidity"]),

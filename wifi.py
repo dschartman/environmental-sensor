@@ -1,8 +1,7 @@
+import network
 from time import sleep
 
-import network
-
-from config import PASSWORD, SSID
+from config import WIFI_PASSWORD, WIFI_SSID
 from led import led, led_status
 
 wlan = network.WLAN(network.STA_IF)
@@ -13,7 +12,7 @@ def do_connect():
     wlan.active(True)
     if not wlan.isconnected():
         print("connecting to network...")
-        wlan.connect(SSID, PASSWORD)
+        wlan.connect(WIFI_SSID, WIFI_PASSWORD)
         while not wlan.isconnected():
             led.on()
             sleep(0)
