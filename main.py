@@ -2,6 +2,7 @@ from time import sleep
 
 from influx import send_to_influx
 from sample import take_reading
+from config import SENSOR_SLEEP_TIME
 
 while True:
     print("collecting sensor information...")
@@ -11,4 +12,4 @@ while True:
     send_to_influx(data)
 
     print("done...")
-    sleep(60)
+    sleep(SENSOR_SLEEP_TIME)
