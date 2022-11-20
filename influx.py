@@ -26,7 +26,9 @@ def send_to_influx(sensor_data):
         ",gas={gas}".format(gas=sensor_data["gas"]),
     )
     point = "".join(fields)
-    resp = urequests.post(INFLUX_WRITE_URL, headers=headers, data=point)
-    resp.close()
-
-    print(resp.status_code)
+    try:
+        resp = urequests.post(INFLUX_WRITE_URL, headers=headers, data=point)
+        resp.close()
+        print(resp.status_code)
+    except Exception as ex:
+        print(ex)
